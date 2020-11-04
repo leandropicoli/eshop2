@@ -9,6 +9,7 @@ export function cartReducer(state = cart, action: ActionModel) {
     switch (action.type) {
         case ActionTypes.Add:
             {
+                state = JSON.parse(JSON.stringify(state))
                 state.products.push(action.payload);
                 state.total = calculateTotal(state.products);
 
@@ -18,6 +19,7 @@ export function cartReducer(state = cart, action: ActionModel) {
 
         case ActionTypes.Remove:
             {
+                state = JSON.parse(JSON.stringify(state))
                 const index = state.products.indexOf(action.payload);
                 state.products.splice(index, 1);
                 state.total = calculateTotal(state.products);
