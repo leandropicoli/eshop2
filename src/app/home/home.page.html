@@ -12,3 +12,12 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="end">
+      <ion-title>{{ (cart$ | async).total | currency: 'BRL' }}</ion-title>
+      <ion-button color="success" fill="solid">Checkout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
